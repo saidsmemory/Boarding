@@ -10,7 +10,7 @@ public class Member {
 	private String email;
 	private String password;
 	private String name;
-	private LocalDateTime regdate;
+	private String regdate;
 	public String getId() {
 		return id;
 	}
@@ -35,10 +35,10 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public LocalDateTime getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(LocalDateTime regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	

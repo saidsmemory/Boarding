@@ -15,13 +15,13 @@ public class InterceptorTest extends HandlerInterceptorAdapter {
 			throws Exception {
 		System.out.println("intercep");
 		HttpSession se = request.getSession();//Session값을 가져온다.
-		Member member = (Member) se.getAttribute("member");
+		Member member = (Member) se.getAttribute("memberinfo");
 		String requestURI = request.getRequestURI();
-		if(requestURI.indexOf("/down") > -1){//down uri라면 true해서 값을 띄운다(한마디로 down은 인터셉터에서 제외)
+		if(requestURI.indexOf("/unlogin") > -1){//down uri라면 true해서 값을 띄운다(한마디로 down은 인터셉터에서 제외)
 			return true;
 		}
 		if(member == null) {
-			response.sendRedirect(request.getContextPath() +"/down");//session의 값이 없으면 이장소로 이동시킨다.
+			response.sendRedirect(request.getContextPath() +"/unlogin");//session의 값이 없으면 이장소로 이동시킨다.
 			return false;
 		}
 		

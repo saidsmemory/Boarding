@@ -31,20 +31,21 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="controller" /> 
+	<context:component-scan base-package="exception" /> 
 		
 	
 
 
        <!-- interceptor -->
-  <!-- 
   
+ 
    <beans:bean id="interceptorTest" class="interceptor.InterceptorTest"></beans:bean>
    <interceptors>
       <interceptor>
-         <mapping path="/**" />
+         <mapping path="/boardUpdate"/>
          <beans:ref bean="interceptorTest" />
       </interceptor>
    </interceptors>
    
-    -->
+  
 </beans:beans>

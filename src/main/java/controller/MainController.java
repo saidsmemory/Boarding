@@ -9,7 +9,9 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import spring.dto.Board;
 import spring.dto.Member;
 import spring.service.MainService;
 import vaildator.MainValidator;
@@ -25,17 +27,12 @@ public class MainController {
 		System.out.println("main");
 		return "main";
 	}
-	@RequestMapping("/down")
+	@RequestMapping("/unlogin")
 	public String down() {
-		return "down";
+		return "unlogin";
 	}
 	
-//	@RequestMapping("/select")
-//	public String select(Member member) {
-//		member.setId("1");
-//		ms.select(member);
-//		return "select";
-//	}
+
 	@GetMapping("/select")
 	public String select(Member member, Model model) {
 //		model.addAttribute("member",member);
@@ -48,7 +45,8 @@ public class MainController {
 			return "select";
 		}
 		Member info = ms.select(member);
-		session.setAttribute("memberinfo", info);
+		
+		session.setAttribute("memberinfo", info);			
 		return "selectPage";
 	}
 	
@@ -88,4 +86,43 @@ public class MainController {
 		session.invalidate();
 		return "logout";
 	}
+	
+	//board기능
+	@GetMapping("/board")
+	public String boardList(Model model, Board board) {
+		//board 파라미터값 변수
+		model.addAttribute("list", ms.boardList(board));
+		return "/board/boardList";
+	}
+	
+	@GetMapping("/boardOne")
+	public String boardOne(Model model, Board board) {	
+		model.addAttribute("board", ms.boardOne(board));
+		return "/board/boardOne";
+	}
+	
+	@PostMapping("/boardUpdate")
+	public String boardUpdate(Board board,HttpSession session,Model model) {
+		
+		//작성자가 아닐경우 - 권한이 없습니다  ----진행중
+		
+		//String seinfo = ((Member) session.getAttribute("memberinfo")).getId();
+		//System.out.println(seinfo);
+		 
+		
+		return "/board/boardUpdate";
+	}
+	@PostMapping("/boardUpdatePage")
+	public String boardUpdatePage(Board board) {
+		ms.boardUpdate(board);
+		return "/board/boardUpdatePage";
+	}
+	
+
+	@GetMapping("ajaxinsert")
+	public String ajaxinsert() {
+		return "/test/ajaxtest";
+	}
+	
+	
 }

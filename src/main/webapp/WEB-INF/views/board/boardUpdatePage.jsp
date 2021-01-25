@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	down
+	확인차원에 정보 입력
+	${board.id}<br>
+	${board.title}<br>
+	${board.content}
+	<script>
+	document.location.href="boardOne?id=${board.id}";
+	</script>
 </body>
 </html>

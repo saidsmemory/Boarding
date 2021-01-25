@@ -7,8 +7,8 @@
   		select *
   		from member
   		where email=#{email}
-  		and password=#{password};
   	</select>
+  	
   
   	<insert id="memberinsert" parameterType="member">
   		insert into member(
@@ -32,5 +32,34 @@
   		set name=#{name}
   		where id=#{id};
   	</update>
+  	
+  	<select id="boardselect" resultType="map" parameterType="board">
+		select 
+		a.id,
+		a.title,
+		a.content,
+		a.reg_date,
+		a.m_id,
+		b.id,
+		b.email,
+		b.name
+		
+		from board as a
+		inner join member as b
+		on a.m_id = b.id
+	</select>
+	
+	<select id="boarddetail" resultType="board" parameterType="board">
+	
+		select *
+		from board
+		where id=#{id};
+	</select>
+	
+	<update id="boardupdate" parameterType="board">
+		update board
+		set title=#{title}, content=#{content}
+		where id=#{id};
+	</update>
   </mapper>
   

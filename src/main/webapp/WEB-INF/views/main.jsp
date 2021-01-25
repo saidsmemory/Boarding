@@ -12,7 +12,12 @@
 	top: 40%;
 	left: 45%;
 }
-
+.main-button{
+	margin:0px 0px;
+	width:70px;
+	<!--background-color:green;-->
+	color:white;
+}
 
 </style>
 <title>Insert title here</title>
@@ -29,19 +34,20 @@
 		</c:if>
 		
 		<c:if test="${sessionScope.memberinfo == null}"> 
-			<button type="button" class="btn btn-primary" onclick="location.href='select'">LOGIN</button>
+			<button type="button" class="main-button" onclick="location.href='select'">LOGIN</button>
 		</c:if>
 		<c:if test="${sessionScope.memberinfo != null}"> 
-			<button type="button" class="btn btn-primary" onclick="location.href='logout'">LOGOUT</button>
+			<button type="button" class="main-button" onclick="location.href='logout'">LOGOUT</button>
 		</c:if>
+		<button type="button" class="main-button" onclick="location.href='insert'">JOIN</button>
 		
-		<button type="button" class="btn btn-primary" onclick="location.href='insert'">JOIN</button>
+		<br>
+		<button type="button" class="main-button" onclick="location.href='board'">BOARD</button>
+		
+		<button type="button" class="main-button" onclick="">ETC</button>
 	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="./js/bootstrap.js"></script>
 </body>
 </html>
-
-<c:if test="${sessionScope.memberinfo != null}"> 
-		</c:if>

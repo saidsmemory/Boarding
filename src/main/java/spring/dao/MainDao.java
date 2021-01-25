@@ -1,10 +1,14 @@
 package spring.dao;
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import spring.dto.Board;
 import spring.dto.Member;
 
 @Component
@@ -27,4 +31,20 @@ public class MainDao {
 	public void memberupdate(Member member) {
 		sql.update("spring.sql.Mapper.memberupdate", member);
 	}
+	
+	
+	
+	//board기능
+	public List<Map> boardselect(Board board) {
+		 return sql.selectList("spring.sql.Mapper.boardselect", board);		 
+	 }
+	
+	public Board boarddetail(Board board) {
+		return sql.selectOne("spring.sql.Mapper.boarddetail", board);
+	}
+	
+	public void boardupdate(Board board) {
+		sql.update("spring.sql.Mapper.boardupdate", board);
+	}
+	
 }
