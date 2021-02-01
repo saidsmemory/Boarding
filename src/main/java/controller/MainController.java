@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.dto.Board;
 import spring.dto.Member;
+import spring.exception.LoginCheckException;
 import spring.service.MainService;
 import vaildator.MainValidator;
 
@@ -21,6 +22,11 @@ public class MainController {
 
 	@Autowired
 	MainService ms;
+	
+	@RequestMapping("/home")
+	public String home() {
+		return "home";
+	}
 	
 	@RequestMapping("/main")
 	public String main() {
@@ -45,6 +51,12 @@ public class MainController {
 			return "select";
 		}
 		Member info = ms.select(member);
+		if(info==null) {
+			throw new LoginCheckException("존재하지않는 이메일입니다");
+		}
+		if(!info.getPassword().equals(member.getPassword())) {
+		throw new LoginCheckException("비밀번호를 확인하세요");
+		}
 		
 		session.setAttribute("memberinfo", info);			
 		return "selectPage";
@@ -101,6 +113,17 @@ public class MainController {
 		return "/board/boardOne";
 	}
 	
+	@GetMapping("/boardInsert")
+	public String boardInsert(Board board) {
+		return "/board/boardInsert";
+	}
+	
+	@PostMapping("/boardInsertPage")
+	public String boardInsertPage(Board board) {
+		ms.badd(board);
+		return "/board/boardInsertPage";
+	}
+	
 	@PostMapping("/boardUpdate")
 	public String boardUpdate(Board board,HttpSession session,Model model) {
 		
@@ -113,12 +136,21 @@ public class MainController {
 		return "/board/boardUpdate";
 	}
 	@PostMapping("/boardUpdatePage")
-	public String boardUpdatePage(Board board) {
+	public String boardUpdatePage(Board board, HttpSession session) {
 		ms.boardUpdate(board);
 		return "/board/boardUpdatePage";
 	}
 	
+	@RequestMapping("/boardDelete")
+	public String boardDeletePage(Board board) {
+		ms.bdel(board);
+		return "board/boardDelete";
+	}
+	
 
+	
+	
+	
 	@GetMapping("ajaxinsert")
 	public String ajaxinsert() {
 		return "/test/ajaxtest";

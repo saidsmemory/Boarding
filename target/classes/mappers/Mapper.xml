@@ -33,6 +33,19 @@
   		where id=#{id};
   	</update>
   	
+  	<insert id="boardinsert" parameterType="board">
+  		insert into board(
+  		title,
+  		content,
+  		m_id
+  		) values(
+  		#{title},
+  		#{content},
+  		#{m_id}
+  		)
+  		
+  	</insert>
+  	
   	<select id="boardselect" resultType="map" parameterType="board">
 		select 
 		a.id,
@@ -61,5 +74,10 @@
 		set title=#{title}, content=#{content}
 		where id=#{id};
 	</update>
+	
+	<delete id="boarddelete" parameterType="board">
+		delete from board
+		where id = #{id};  	
+  	</delete>
   </mapper>
   

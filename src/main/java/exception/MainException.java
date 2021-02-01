@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import spring.exception.DuplicateMemberException;
+import org.springframework.dao.DuplicateKeyException;
+
 import spring.exception.LoginCheckException;
 
 @ControllerAdvice("controller")
@@ -22,12 +23,14 @@ public class MainException {
 		request.setAttribute("msg", ex.getMessage());
 		return "common/alert";
 	}
-	
-	@ExceptionHandler(DuplicateMemberException.class)
-	public String duplicateMemberException(DuplicateMemberException ex, HttpServletRequest request) {
+	//DuplicateKeyException
+	@ExceptionHandler(DuplicateKeyException.class)
+	public String DuplicateKeyException(DuplicateKeyException ex, HttpServletRequest request) {
 		//logger.error(ex.getMessage(), ex);
 		request.setAttribute("uri", request.getContextPath()+"/insert");
-		request.setAttribute("msg", ex.getMessage());
+		request.setAttribute("msg", "다시입력해주세요");
 		return "common/alert";
 	}
+	
 }
+	

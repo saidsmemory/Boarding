@@ -43,8 +43,15 @@ public class MainDao {
 		return sql.selectOne("spring.sql.Mapper.boarddetail", board);
 	}
 	
+	public int boardinsert(Board board) {
+		return sql.insert("spring.sql.Mapper.boardinsert",board);
+	}
+	
 	public void boardupdate(Board board) {
 		sql.update("spring.sql.Mapper.boardupdate", board);
 	}
 	
+	public int boarddelete(Board board) {
+		return sql.delete("spring.sql.Mapper.boarddelete", board);
+	}
 }

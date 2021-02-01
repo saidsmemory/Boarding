@@ -47,7 +47,8 @@
 			<div>
 			<!--메세지 정상 작동 	<spring:message code="wkwkddls"/>  -->
 			
-				<input type="submit" value="Login">
+				<input type="submit" value="LOGIN">
+				<button type="button" onclick="location.href='main'">MAIN</button>
 			</div>
 		</div>
 	</form:form>

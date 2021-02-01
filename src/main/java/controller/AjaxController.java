@@ -25,5 +25,10 @@ public class AjaxController {
 		return ResponseEntity.ok(ms.select(member));
 	}
 
+	
+	@GetMapping("/duplicateEmail")
+	public ResponseEntity duplicateEmail(Member member) {
+		return ResponseEntity.ok(ms.select(member));
+	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -43,9 +44,9 @@ a:link {
 		</table>
 
 		<div class="pull-right">
-			<!-- Standard button -->
-			<button type="button" class="btn btn-default">INSERT</button>
-
+			<c:if test="${sessionScope.memberinfo != null }">
+				<button type="button" class="btn btn-default" onclick="location.href='boardInsert'">INSERT</button>
+			</c:if>
 			<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
 			<button type="button" class="btn btn-primary" onclick="location.href='main'">MAIN</button>
 

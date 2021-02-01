@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <meta charset="UTF-8">
 <style>
 .form-join {
@@ -33,8 +34,9 @@
 			</div>
 			<br><br>
 			<div class="form-group">
-				<label>이메일 주소</label> <input type="text" name="email"
-					class="form-control" placeholder="이메일을 입력하세요">
+				<label>이메일 주소</label> <input type="text" id="email" name="email"
+					class="form-control" placeholder="이메일을 입력하세요" onkeyup="read()">
+					<div id="display"></div>
 			</div>
 			<div class="form-group">
 				<label>암호</label> <input type="password" name="password"
@@ -51,6 +53,29 @@
 			</div>
 		</div>
 	</form>
+	<script>
+	function read(){
+   		var url = 'http://localhost:8080/mybatis7/duplicateEmail'
+        var email = $('#email').val()
+                	
+       	$.ajax({
+        	method: "get", //get방식
+            url: url,	//url 참조
+            dataType: "json",
+            data: {email:email}
+        }).done(function(data) {
+        	//var a = '<P>'+data.password+'</p>';
+            //var a = '<P>'+"존재하는 이메일입니다"+'</p>';
+           	var a = "존재하는 이메일입니다.";
+            $('#display').html(a);
+        }).fail(function(msg) {
+     		var b ="생성가능합니다";
+            $('#display').html(b);
+            //console.log(msg);
+        });
+	}
+         
+      </script>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="./js/bootstrap.js"></script>

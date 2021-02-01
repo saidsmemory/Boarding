@@ -45,8 +45,9 @@
 		<button type="button" class="main-button" onclick="location.href='board'">BOARD</button>
 		
 		<button type="button" class="main-button" onclick="">ETC</button>
+		
 	</div>
-	
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="./js/bootstrap.js"></script>
 </body>

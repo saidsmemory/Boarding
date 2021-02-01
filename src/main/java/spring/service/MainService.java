@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import spring.dao.MainDao;
 import spring.dto.Board;
 import spring.dto.Member;
-import spring.exception.DuplicateMemberException;
 import spring.exception.LoginCheckException;
 
 @Service
@@ -25,22 +24,12 @@ public class MainService {
 		//login관련 연습
 		public Member select(Member member){
 			Member info = dao.memberselect(member);
-			if(info==null) {
-				throw new LoginCheckException("존재하지않는 이메일입니다");
-			}
-		//	if(!info.getPassword().equals(member.getPassword())) {
-		//		throw new LoginCheckException("비밀번호를 확인하세요");
-		//	}
-			return info;
+		return info;
 		}
-		
-		
-		
+				
+				
+				
 		public int add(Member member) {
-			Member checkmember = dao.memberselect(member);
-			if(checkmember != null) {
-				throw new DuplicateMemberException("중복된 아이디입니다");
-			}
 			return dao.memberinsert(member);
 		}
 		
@@ -62,7 +51,16 @@ public class MainService {
 		public Board boardOne(Board board) {
 			return dao.boarddetail(board);
 		}
+		
+		public int badd(Board board) {
+			return dao.boardinsert(board);
+		}
 		public void boardUpdate(Board board) {
 			dao.boardupdate(board);
+		}
+		
+		public void bdel(Board board) {
+			dao.boarddelete(board);
+			System.out.println("delete");
 		}
 }

@@ -11,7 +11,6 @@ import spring.dto.Member;
 public interface Mapper {
 	public Member memberselect(Member member);
 	
-	
 	public int memberinsert(Member member);
 	
 	public int memberdelete(Member member);
@@ -23,4 +22,8 @@ public interface Mapper {
 	public Board boarddetail(Board board);
 	
 	public void boardupdate(Board board);
+	
+	public int boardinsert(Board board);
+	
+	public int boarddelete(Board board);
 }
