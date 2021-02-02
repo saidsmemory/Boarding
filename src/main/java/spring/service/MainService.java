@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import spring.dao.MainDao;
 import spring.dto.Board;
 import spring.dto.Member;
-import spring.exception.LoginCheckException;
 
 @Service
 public class MainService {
@@ -63,4 +62,11 @@ public class MainService {
 			dao.boarddelete(board);
 			System.out.println("delete");
 		}
+		
+
+
+
+		
+
+
 }

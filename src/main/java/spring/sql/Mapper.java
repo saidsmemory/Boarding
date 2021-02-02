@@ -26,4 +26,5 @@ public interface Mapper {
 	public int boardinsert(Board board);
 	
 	public int boarddelete(Board board);
+
 }

@@ -54,4 +54,5 @@ public class MainDao {
 	public int boarddelete(Board board) {
 		return sql.delete("spring.sql.Mapper.boarddelete", board);
 	}
+	
 }

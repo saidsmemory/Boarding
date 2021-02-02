@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.dto.Board;
 import spring.dto.Member;
@@ -28,9 +27,17 @@ public class MainController {
 		return "home";
 	}
 	
+	@RequestMapping("/home2")
+	public String home2() {
+		return "home2";
+	}
+	@RequestMapping("/home3")
+	public String home3() {
+		return "home3";
+	}
+	
 	@RequestMapping("/main")
 	public String main() {
-		System.out.println("main");
 		return "main";
 	}
 	@RequestMapping("/unlogin")
@@ -52,10 +59,10 @@ public class MainController {
 		}
 		Member info = ms.select(member);
 		if(info==null) {
-			throw new LoginCheckException("존재하지않는 이메일입니다");
+			throw new LoginCheckException("This email does not exist.");
 		}
 		if(!info.getPassword().equals(member.getPassword())) {
-		throw new LoginCheckException("비밀번호를 확인하세요");
+		throw new LoginCheckException("Check your password");
 		}
 		
 		session.setAttribute("memberinfo", info);			

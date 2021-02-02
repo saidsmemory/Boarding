@@ -60,7 +60,9 @@
 		from board as a
 		inner join member as b
 		on a.m_id = b.id
+		
 	</select>
+	
 	
 	<select id="boarddetail" resultType="board" parameterType="board">
 	
