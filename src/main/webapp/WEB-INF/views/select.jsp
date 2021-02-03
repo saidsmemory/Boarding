@@ -25,7 +25,10 @@
 <script src="./js/ie-emulation-modes-warning.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <style>
-	
+	.joinright{
+		margin-right:5px;
+		text-align:right;
+	}
 </style>
 </head>
 
@@ -63,8 +66,9 @@
 		<input type="text" name="email" class="form-control" placeholder="Email address"><form:errors class="valimsg" path="email"/>
     	<input type="password" name="password" class="form-control" placeholder="Password"><form:errors class="valimsg" path="password"/>
         
-        <button class="form-control" type="submit">LOGIN</button>
+        <button class="form-control" type="submit" style="background-color:#6495ED;color:white;">LOGIN</button>
       </form:form>
+      	<div class="joinright"><a href="insert">JOIN</a></div>
 		</div>
 
 		</div>

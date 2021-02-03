@@ -28,7 +28,7 @@ public class MainException {
 	public String DuplicateKeyException(DuplicateKeyException ex, HttpServletRequest request) {
 		//logger.error(ex.getMessage(), ex);
 		request.setAttribute("uri", request.getContextPath()+"/insert");
-		request.setAttribute("msg", "다시입력해주세요");
+		request.setAttribute("msg", "Please retype the info");
 		return "common/alert";
 	}
 	

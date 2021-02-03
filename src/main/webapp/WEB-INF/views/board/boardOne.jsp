@@ -47,6 +47,11 @@ th, td {
 .col2 {
 	text-align: left;
 }
+.custombtn{
+	background-color:#6495ED;
+	color:white;
+	border:none;
+}
 </style>
 </head>
 
@@ -76,8 +81,17 @@ th, td {
 		</div>
 		<div class="boardwarpper">
 			<form:form modelAttribute="board" action="boardUpdate" method="post">
+				<div style="height:70px;text-align:right;">
 				<div>
-					<h1 class="board_t" style="width:30px;">BOARD</h1>
+					<!-- var이라는 변수에 value값을 넣는 C:set -->
+					<c:set var="m_id" value="${board.m_id}" />
+					<c:if test="${sessionScope.memberinfo.id == m_id}">
+						<input type="submit" class="custombtn" value="UPDATE">
+						<button type="button" class="custombtn"
+							onclick="if(!confirm('삭제 하시겠습니까?')){return false;};location.href='boardDelete?id=${board.id}';">DELETE</button>
+					</c:if>
+					<button type="button" class="custombtn" onclick="location.href='board'">BOARD</button>
+				</div>
 				</div>
 				<div>
 
@@ -93,14 +107,6 @@ th, td {
 				<div style="margin:40px;text-align:right;">
 					<input type="hidden" name="id" value="${board.id}">
 
-					<!-- var이라는 변수에 value값을 넣는 C:set -->
-					<c:set var="m_id" value="${board.m_id}" />
-					<c:if test="${sessionScope.memberinfo.id == m_id}">
-						<input type="submit" value="UPDATE">
-						<button type="button" class="main-button"
-							onclick="if(!confirm('삭제 하시겠습니까?')){return false;};location.href='boardDelete?id=${board.id}';">DELETE</button>
-					</c:if>
-					<button type="button" onclick="location.href='board'">BOARD</button>
 				</div>
 			</form:form>
 		</div>

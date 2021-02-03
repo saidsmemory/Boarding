@@ -43,6 +43,12 @@ th, td {
 .col2{
 	text-align:left;
 }
+.custombtn{
+	background-color:#6495ED;
+	color:white;
+	border:none;
+}
+
 </style>
 </head>
 
@@ -89,7 +95,7 @@ th, td {
 
 			<div class="pull-right">
 				<c:if test="${sessionScope.memberinfo != null }">
-					<button type="button" class="btn btn-default"
+					<button type="button" class="custombtn"
 						onclick="location.href='boardInsert'">INSERT</button>
 				</c:if>
 				
