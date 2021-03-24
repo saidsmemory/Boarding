@@ -49,14 +49,14 @@
 		<div class="row marketing" style="margin: 40px 0;">
 			<div class="col-lg-6">
 				<!-- 왼쪽 -->
-				<h4>Subheading-1</h4>
+				<h4>Today's Sentence - 1</h4>
 				<p>A genius is just a talented person who does his homework.</p>
 
-				<h4>Subheading-2</h4>
+				<h4>Today's Sentence - 2</h4>
 				<p>He removes the greatest ornament of friendship, 
 				who takes away from it respect.</p>
 
-				<h4>Subheading-3</h4>
+				<h4>Today's Sentence - 3</h4>
 				<p>I know of no more encouraging fact than the unquestioned 
 				ability of a man to elevate his life by conscious endeavor.</p>
 				
@@ -65,16 +65,18 @@
 
 			<div class="col-lg-6">
 				<!-- 오른쪽 -->
-				<h4>Subheading-4</h4>
+				<h4>Today's Sentence - 4</h4>
 				<p>God doesn't require us to succeed; he only requires that you try.</p>
 
-				<h4>Subheading-5</h4>
+				<h4>Today's Sentence - 5</h4>
 				<p>It's only when the tide goes out that you discover who's been 
 				swimming naked.</p>
 
-				<h4>Subheading-6</h4>
+				<!--
+				<h4>Today's Sentence - 6</h4>
 				<p>When we do the best that we can, we never know what miracle is
 				 wrought in our life, or in the life of another.</p>
+				  -->
 					
 				
 			</div>
